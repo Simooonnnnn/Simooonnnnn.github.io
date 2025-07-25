@@ -3,20 +3,660 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery 🍓</title>
+  <title>Chaotic Femboy Gallery 🍓💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="gallery.html">Gallery</a>
+  <div class="chaos-overlay"></div>
+  <div class="glitch-overlay"></div>
+  
+  <nav class="chaotic-nav">
+    <a href="index.html" class="nav-link">🏠 CHAOS HOME 🏠</a>
+    <a href="about.html" class="nav-link">✨ ABOUT BEAN ✨</a>
+    <a href="gallery.html" class="nav-link">📸 GALLERY 📸</a>
+    <a href="#" onclick="kissExplosion()" class="nav-link">💋 KISS CHAOS 💋</a>
+    <a href="#" onclick="screenShake()" class="nav-link">🌪️ SHAKE IT 🌪️</a>
   </nav>
-  <h1>💗 Femboy Gallery 💗</h1>
-  <div class="content">
-    <img src="https://i.imgur.com/LxAkDyH.jpeg" class="femboy-img">
-    <img src="https://i.imgur.com/QU1D7hl.jpeg" class="femboy-img">
-    <img src="https://i.imgur.com/dsEZQkW.jpeg" class="femboy-img">
+
+  <div class="title-container">
+    <h1 class="mega-title">💗🍓 MAXIMUM FEMBOY CHAOS GALLERY 🍓💗</h1>
+    <div class="subtitle">✨ Where cuteness meets digital destruction ✨</div>
   </div>
+
+  <div class="content">
+    <div class="gallery-controls">
+      <button class="gallery-btn" onclick="shuffleGallery()">🔀 Chaos Shuffle</button>
+      <button class="gallery-btn" onclick="addRandomImage()">🎲 Random Chaos</button>
+      <button class="gallery-btn" onclick="galleryExplosion()">💥 Gallery Bomb</button>
+      <button class="gallery-btn" onclick="rainbowMode()">🌈 Rainbow Mode</button>
+      <button class="gallery-btn" onclick="heartMode()">💖 Heart Attack</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Main femboy images with working placeholders -->
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=11" class="gallery-img chaos-img" alt="Femboy chaos 1">
+        <div class="image-overlay">
+          <div class="overlay-text">💖 Chaos Bean #1 💖</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=12" class="gallery-img chaos-img" alt="Femboy chaos 2">
+        <div class="image-overlay">
+          <div class="overlay-text">✨ Sparkle Mode ✨</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=13" class="gallery-img chaos-img" alt="Femboy chaos 3">
+        <div class="image-overlay">
+          <div class="overlay-text">🌈 Rainbow Energy 🌈</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=14" class="gallery-img chaos-img" alt="Femboy chaos 4">
+        <div class="image-overlay">
+          <div class="overlay-text">🍓 Berry Cuteness 🍓</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=15" class="gallery-img chaos-img" alt="Femboy chaos 5">
+        <div class="image-overlay">
+          <div class="overlay-text">💅 Chaos Vibes 💅</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=16" class="gallery-img chaos-img" alt="Femboy chaos 6">
+        <div class="image-overlay">
+          <div class="overlay-text">🦄 Unicorn Dreams 🦄</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=17" class="gallery-img chaos-img" alt="Femboy chaos 7">
+        <div class="image-overlay">
+          <div class="overlay-text">🌸 Flower Power 🌸</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=18" class="gallery-img chaos-img" alt="Femboy chaos 8">
+        <div class="image-overlay">
+          <div class="overlay-text">⚡ Electric Chaos ⚡</div>
+        </div>
+      </div>
+      
+      <div class="gallery-item" onclick="imageExplosion(this)">
+        <img src="https://picsum.photos/400/500?random=19" class="gallery-img chaos-img" alt="Femboy chaos 9">
+        <div class="image-overlay">
+          <div class="overlay-text">💫 Cosmic Cuteness 💫</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-stats">
+      <h2 class="stats-title">📊 Chaos Gallery Statistics 📊</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="viewCount">1,337</div>
+          <div class="stat-label">Chaos Views</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="heartCount">999</div>
+          <div class="stat-label">Hearts Exploded</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="uwuCount">2,048</div>
+          <div class="stat-label">UwUs Generated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="chaosLevel">MAXIMUM</div>
+          <div class="stat-label">Chaos Level</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visitor-section">
+      <h2 class="section-title">💌 Chaos Visitor Messages 💌</h2>
+      <div class="message-container">
+        <div class="chaos-message">
+          <div class="message-author">UwUMaster69 💖</div>
+          <div class="message-text">"This gallery literally broke my screen with cuteness! 11/10 would chaos again! ✨"</div>
+        </div>
+        <div class="chaos-message">
+          <div class="message-author">SparkleQueen ⚡</div>
+          <div class="message-text">"I CANNOT HANDLE THIS LEVEL OF ADORABLE CHAOS!! My heart has exploded 47 times!! 💥💖"</div>
+        </div>
+        <div class="chaos-message">
+          <div class="message-author">RainbowDestroyer 🌈</div>
+          <div class="message-text">"WARNING: This gallery contains illegal levels of cuteness! Proceed with caution! 🚨"</div>
+        </div>
+      </div>
+      
+      <div class="message-input-section">
+        <input type="text" id="messageInput" placeholder="Leave a chaotic message! ✨" class="chaos-input">
+        <button onclick="addChaosMessage()" class="message-btn">💖 Add Chaos 💖</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chaos containers -->
+  <div class="emoji-rain" id="emojiRain"></div>
+  <div class="uwu-rain" id="uwuRain"></div>
+  <div class="heart-rain" id="heartRain"></div>
+  <div class="rainbow-particles" id="rainbowParticles"></div>
+  <div class="kiss-explosions" id="kissExplosions"></div>
+  <div class="sparkle-container" id="sparkleContainer"></div>
+  <div class="glitch-text-container" id="glitchTextContainer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    let galleryStats = {
+      views: 1337,
+      hearts: 999,
+      uwus: 2048
+    };
+
+    // Gallery specific effects
+    function imageExplosion(element) {
+      const img = element.querySelector('.gallery-img');
+      const overlay = element.querySelector('.image-overlay');
+      
+      // Image explosion effect
+      img.style.transform = 'scale(1.2) rotate(15deg)';
+      overlay.style.opacity = '1';
+      
+      setTimeout(() => {
+        img.style.transform = '';
+        overlay.style.opacity = '0';
+      }, 500);
+      
+      // Create heart explosion around the image
+      const rect = element.getBoundingClientRect();
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.innerText = ["💖", "💗", "💘", "💝", "💕"][Math.floor(Math.random() * 5)];
+        heart.style.position = "fixed";
+        heart.style.left = rect.left + Math.random() * rect.width + "px";
+        heart.style.top = rect.top + Math.random() * rect.height + "px";
+        heart.style.fontSize = "2em";
+        heart.style.pointerEvents = "none";
+        heart.style.zIndex = "15";
+        heart.style.animation = "kissExplode 1.5s ease-out forwards";
+        
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1500);
+      }
+      
+      // Update stats
+      galleryStats.hearts += Math.floor(Math.random() * 10) + 1;
+      updateStats();
+      
+      flashScreen("#ff69b4");
+      playSound("heart");
+    }
+    
+    function shuffleGallery() {
+      const grid = document.getElementById('galleryGrid');
+      const items = Array.from(grid.children);
+      
+      // Shuffle animation
+      items.forEach((item, index) => {
+        item.style.animation = 'none';
+        item.offsetHeight; // Trigger reflow
+        item.style.animation = `galleryShake 0.5s ease-in-out ${index * 0.1}s`;
+      });
+      
+      setTimeout(() => {
+        // Actually shuffle the items
+        for (let i = items.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          grid.appendChild(items[j]);
+        }
+        
+        items.forEach(item => {
+          item.style.animation = '';
+        });
+      }, 1000);
+      
+      spawnEmoji();
+      playSound("shuffle");
+    }
+    
+    function addRandomImage() {
+      const grid = document.getElementById('galleryGrid');
+      const randomNum = Math.floor(Math.random() * 1000) + 100;
+      
+      const newItem = document.createElement('div');
+      newItem.className = 'gallery-item';
+      newItem.onclick = () => imageExplosion(newItem);
+      newItem.innerHTML = `
+        <img src="https://picsum.photos/400/500?random=${randomNum}" class="gallery-img chaos-img" alt="Random chaos ${randomNum}">
+        <div class="image-overlay">
+          <div class="overlay-text">🎲 Random Chaos #${randomNum} 🎲</div>
+        </div>
+      `;
+      
+      newItem.style.animation = 'newItemAppear 1s ease-out';
+      grid.appendChild(newItem);
+      
+      galleryStats.views += Math.floor(Math.random() * 50) + 10;
+      updateStats();
+      
+      heartStorm();
+      playSound("random");
+    }
+    
+    function galleryExplosion() {
+      const items = document.querySelectorAll('.gallery-item');
+      
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          imageExplosion(item);
+        }, index * 200);
+      });
+      
+      setTimeout(() => {
+        rainbowExplosion();
+      }, 500);
+      
+      setTimeout(() => {
+        screenShake();
+      }, 1000);
+    }
+    
+    function rainbowMode() {
+      const images = document.querySelectorAll('.gallery-img');
+      images.forEach(img => {
+        img.style.filter = 'hue-rotate(0deg) saturate(200%) brightness(120%)';
+        img.style.animation = 'rainbowFilter 2s linear infinite';
+      });
+      
+      setTimeout(() => {
+        images.forEach(img => {
+          img.style.filter = '';
+          img.style.animation = '';
+        });
+      }, 10000);
+      
+      rainbowExplosion();
+    }
+    
+    function heartMode() {
+      heartStorm();
+      
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        item.style.borderColor = '#ff69b4';
+        item.style.boxShadow = '0 0 30px #ff69b4';
+      });
+      
+      setTimeout(() => {
+        items.forEach(item => {
+          item.style.borderColor = '';
+          item.style.boxShadow = '';
+        });
+      }, 5000);
+    }
+    
+    function updateStats() {
+      document.getElementById('viewCount').textContent = galleryStats.views.toLocaleString();
+      document.getElementById('heartCount').textContent = galleryStats.hearts.toLocaleString();
+      document.getElementById('uwuCount').textContent = galleryStats.uwus.toLocaleString();
+    }
+    
+    function addChaosMessage() {
+      const input = document.getElementById('messageInput');
+      const message = input.value.trim();
+      
+      if (message) {
+        const container = document.querySelector('.message-container');
+        const messageEl = document.createElement('div');
+        messageEl.className = 'chaos-message new-message';
+        messageEl.innerHTML = `
+          <div class="message-author">ChaosBringer${Math.floor(Math.random() * 9999)} 💖</div>
+          <div class="message-text">"${message} ✨"</div>
+        `;
+        
+        container.insertBefore(messageEl, container.firstChild);
+        input.value = '';
+        
+        // Add UwU to stats
+        galleryStats.uwus += Math.floor(Math.random() * 20) + 5;
+        updateStats();
+        
+        spawnUwU();
+        playSound("message");
+        
+        // Remove message after 30 seconds to prevent spam
+        setTimeout(() => {
+          messageEl.remove();
+        }, 30000);
+      }
+    }
+    
+    // Auto-increment stats
+    setInterval(() => {
+      galleryStats.views += Math.floor(Math.random() * 3) + 1;
+      galleryStats.uwus += Math.floor(Math.random() * 2);
+      updateStats();
+    }, 5000);
+    
+    // Random gallery chaos
+    setInterval(() => {
+      if (Math.random() < 0.05) { // 5% chance
+        const chaosEvents = [
+          () => createChaosParticle(Math.random() * window.innerWidth, Math.random() * window.innerHeight),
+          () => {
+            const randomImg = document.querySelectorAll('.gallery-img')[Math.floor(Math.random() * document.querySelectorAll('.gallery-img').length)];
+            if (randomImg) {
+              randomImg.style.filter = 'hue-rotate(' + Math.random() * 360 + 'deg)';
+              setTimeout(() => {
+                randomImg.style.filter = '';
+              }, 2000);
+            }
+          }
+        ];
+        
+        chaosEvents[Math.floor(Math.random() * chaosEvents.length)]();
+      }
+    }, 3000);
+    
+    // Allow Enter key in message input
+    document.getElementById('messageInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        addChaosMessage();
+      }
+    });
+  </script>
+  
+  <style>
+    .gallery-controls {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      margin: 2em 0;
+      flex-wrap: wrap;
+    }
+    
+    .gallery-btn {
+      padding: 1em 2em;
+      background: linear-gradient(45deg, #ff69b4, #ff1493, #ff00ff);
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: buttonFloat 2s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+    
+    .gallery-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 30px #ff69b4;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+      margin: 3em 0;
+      padding: 1em;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: galleryFloat 4s ease-in-out infinite;
+      border: 3px solid #ff00ff;
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+    }
+    
+    .gallery-item:hover {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 0 40px #ff00ff;
+    }
+    
+    .gallery-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 0, 255, 0.8), rgba(0, 255, 255, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .overlay-text {
+      font-size: 1.5em;
+      font-weight: bold;
+      text-shadow: 0 0 10px black;
+      animation: textPulse 1s infinite alternate;
+    }
+    
+    .gallery-stats {
+      margin: 4em 0;
+      text-align: center;
+    }
+    
+    .stats-title {
+      font-size: 2.5em;
+      margin-bottom: 2em;
+      animation: megaRainbow 3s infinite;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .stat-card {
+      background: linear-gradient(45deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3));
+      border: 3px solid #ff00ff;
+      border-radius: 20px;
+      padding: 2em;
+      animation: cardFloat 3s ease-in-out infinite;
+    }
+    
+    .stat-number {
+      font-size: 3em;
+      font-weight: bold;
+      color: #ffff00;
+      animation: numberPulse 2s infinite alternate;
+    }
+    
+    .stat-label {
+      font-size: 1.2em;
+      margin-top: 0.5em;
+      color: #ff69b4;
+    }
+    
+    @keyframes numberPulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.1); }
+    }
+    
+    .visitor-section {
+      margin: 4em 0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .section-title {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 2em;
+      animation: megaRainbow 3s infinite;
+    }
+    
+    .message-container {
+      margin-bottom: 2em;
+    }
+    
+    .chaos-message {
+      background: linear-gradient(45deg, rgba(255, 105, 180, 0.2), rgba(255, 0, 255, 0.2));
+      border: 2px solid #ff69b4;
+      border-radius: 15px;
+      padding: 1.5em;
+      margin: 1em 0;
+      animation: messageFloat 3s ease-in-out infinite;
+    }
+    
+    .new-message {
+      animation: newMessageAppear 1s ease-out, messageFloat 3s ease-in-out infinite 1s;
+    }
+    
+    .message-author {
+      font-weight: bold;
+      color: #ffff00;
+      margin-bottom: 0.5em;
+    }
+    
+    .message-text {
+      font-style: italic;
+      line-height: 1.5;
+    }
+    
+    .message-input-section {
+      display: flex;
+      gap: 1em;
+      margin-top: 2em;
+    }
+    
+    .chaos-input {
+      flex: 1;
+      padding: 1em;
+      border: 3px solid #ff00ff;
+      border-radius: 15px;
+      background: rgba(255, 0, 255, 0.1);
+      color: white;
+      font-size: 1.1em;
+      outline: none;
+    }
+    
+    .chaos-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .chaos-input:focus {
+      box-shadow: 0 0 20px #ff00ff;
+      background: rgba(255, 0, 255, 0.2);
+    }
+    
+    .message-btn {
+      padding: 1em 2em;
+      background: linear-gradient(45deg, #ff69b4, #ff1493);
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .message-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff69b4;
+    }
+    
+    @keyframes galleryFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-10px) rotate(1deg); }
+      50% { transform: translateY(-5px) rotate(0deg); }
+      75% { transform: translateY(-15px) rotate(-1deg); }
+    }
+    
+    @keyframes galleryShake {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      25% { transform: translateX(-10px) rotate(2deg); }
+      50% { transform: translateX(10px) rotate(-2deg); }
+      75% { transform: translateX(-5px) rotate(1deg); }
+    }
+    
+    @keyframes newItemAppear {
+      0% { 
+        transform: scale(0) rotate(180deg);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.2) rotate(90deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes newMessageAppear {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes messageFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes rainbowFilter {
+      0% { filter: hue-rotate(0deg) saturate(200%) brightness(120%); }
+      100% { filter: hue-rotate(360deg) saturate(200%) brightness(120%); }
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+      }
+      
+      .gallery-controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .message-input-section {
+        flex-direction: column;
+      }
+      
+      .stat-number {
+        font-size: 2em;
+      }
+    }
+  </style>
 </body>
 </html>

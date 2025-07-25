@@ -3,32 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌈💖 FEMBOY APOCALYPSE 💖🌈</title>
+  <title>🌈💖 ULTIMATE FEMBOY CHAOS DIMENSION 💖🌈</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/4ivc2x.mp3" type="audio/mpeg">
-  </audio>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="#" onclick="alert('💋 Kissed by a femboy! 💋')">Kiss Me</a>
+  <div class="chaos-overlay"></div>
+  <div class="glitch-overlay"></div>
+  
+  <nav class="chaotic-nav">
+    <a href="index.html" class="nav-link">🏠 CHAOS HOME 🏠</a>
+    <a href="about.html" class="nav-link">✨ ABOUT BEAN ✨</a>
+    <a href="gallery.html" class="nav-link">📸 GALLERY 📸</a>
+    <a href="#" onclick="kissExplosion()" class="nav-link">💋 KISS CHAOS 💋</a>
+    <a href="#" onclick="screenShake()" class="nav-link">🌪️ SHAKE IT 🌪️</a>
   </nav>
 
-  <h1>💖 FLUFFBOY MAXIMUM MODE 💖</h1>
-  <div class="content">
-    <img src="https://i.imgur.com/NyZlg9f.png" class="femboy-img">
-    <img src="https://i.imgur.com/m04iV8Z.png" class="femboy-img">
-    <button class="button" onclick="spawnUwU()">UwU</button>
-    <button class="button" onclick="spawnEmoji()">Spam Emojis 💦</button>
-    <button class="button" onclick="alert('You got kissed by a digital femboi 💋✨')">Get Kissed</button>
+  <div class="title-container">
+    <h1 class="mega-title">💖🌈✨ MAXIMUM FEMBOY OVERLOAD CHAOS DIMENSION ✨🌈💖</h1>
+    <div class="subtitle">⚡ WHERE OVERSTIMULATION MEETS CUTENESS ⚡</div>
   </div>
 
+  <div class="content">
+    <div class="image-chaos">
+      <!-- Using placeholder images that actually work -->
+      <img src="https://picsum.photos/200/300?random=1" class="femboy-img chaos-img" alt="Cute femboy pic 1">
+      <img src="https://picsum.photos/200/300?random=2" class="femboy-img chaos-img" alt="Cute femboy pic 2">
+      <img src="https://picsum.photos/200/300?random=3" class="femboy-img chaos-img" alt="Cute femboy pic 3">
+    </div>
+    
+    <div class="button-chaos">
+      <button class="chaos-button uwu-btn" onclick="spawnUwU()">UwU EXPLOSION 💥</button>
+      <button class="chaos-button emoji-btn" onclick="spawnEmoji()">EMOJI APOCALYPSE 🌪️</button>
+      <button class="chaos-button kiss-btn" onclick="kissExplosion()">KISS BOMB 💋💥</button>
+      <button class="chaos-button shake-btn" onclick="screenShake()">CHAOS SHAKE 🌀</button>
+      <button class="chaos-button rainbow-btn" onclick="rainbowExplosion()">RAINBOW NUKE 🌈</button>
+      <button class="chaos-button heart-btn" onclick="heartStorm()">HEART STORM 💖</button>
+      <button class="chaos-button glitch-btn" onclick="glitchMode()">GLITCH REALITY ⚡</button>
+    </div>
+
+    <div class="chaos-text">
+      <p class="pulsing-text">✨ WELCOME TO THE FEMBOY CHAOS DIMENSION ✨</p>
+      <p class="spinning-text">🌈 WHERE CUTENESS MEETS ABSOLUTE MADNESS 🌈</p>
+      <p class="bouncing-text">💖 PREPARE FOR MAXIMUM OVERSTIMULATION 💖</p>
+    </div>
+  </div>
+
+  <!-- Chaos containers -->
   <div class="emoji-rain" id="emojiRain"></div>
   <div class="uwu-rain" id="uwuRain"></div>
+  <div class="heart-rain" id="heartRain"></div>
+  <div class="rainbow-particles" id="rainbowParticles"></div>
+  <div class="kiss-explosions" id="kissExplosions"></div>
+  <div class="sparkle-container" id="sparkleContainer"></div>
+  <div class="glitch-text-container" id="glitchTextContainer"></div>
 
   <script src="script.js"></script>
 </body>

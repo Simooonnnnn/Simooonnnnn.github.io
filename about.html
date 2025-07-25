@@ -3,20 +3,476 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me ✨</title>
+  <title>About This Chaotic Bean ✨💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="gallery.html">Gallery</a>
+  <div class="chaos-overlay"></div>
+  <div class="glitch-overlay"></div>
+  
+  <nav class="chaotic-nav">
+    <a href="index.html" class="nav-link">🏠 CHAOS HOME 🏠</a>
+    <a href="about.html" class="nav-link">✨ ABOUT BEAN ✨</a>
+    <a href="gallery.html" class="nav-link">📸 GALLERY 📸</a>
+    <a href="#" onclick="kissExplosion()" class="nav-link">💋 KISS CHAOS 💋</a>
+    <a href="#" onclick="screenShake()" class="nav-link">🌪️ SHAKE IT 🌪️</a>
   </nav>
-  <h1>🥺 About This Fluffy Bean</h1>
-  <div class="content">
-    <p>Heyo~ I'm a chaotic, sparkly, caffeinated femboy who loves thigh highs, Monster Energy, and building overstimulating HTML abominations 💖</p>
-    <p>Pronouns: He/They/She</p>
-    <p>Interests: Sparkles ✨, Photography 📷, Femboy Fashion 🖤, HTML Sins 😈</p>
+
+  <div class="title-container">
+    <h1 class="mega-title">🥺✨ About This Fluffy Chaos Bean ✨🥺</h1>
   </div>
+
+  <div class="content">
+    <div class="about-container">
+      <div class="profile-section">
+        <div class="profile-image-container">
+          <img src="https://picsum.photos/300/300?random=10" class="profile-img chaos-img" alt="Chaotic femboy bean">
+          <div class="image-sparkles"></div>
+        </div>
+        
+        <div class="bio-section">
+          <p class="bio-text pulsing-text">
+            🌈 Heyo~ I'm a chaotic, sparkly, caffeinated femboy who lives in a dimension where cuteness meets absolute digital mayhem! 💖✨
+          </p>
+          
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Pronouns:</span>
+              <span class="info-value spinning-text">He/They/She/Chaos</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Chaos Level:</span>
+              <span class="info-value bouncing-text">MAXIMUM OVERDRIVE 💥</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Energy Source:</span>
+              <span class="info-value pulsing-text">Monster Energy & Pure Chaos ⚡</span>
+            </div>
+            
+            <div class="info-item">
+              <span class="info-label">Mission:</span>
+              <span class="info-value rainbow-text">Spreading femboy chaos across the digital realm 🌈</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="interests-section">
+        <h2 class="section-title">💖 Chaos Interests 💖</h2>
+        <div class="interests-grid">
+          <div class="interest-card" onclick="interestExplosion(this, '✨')">
+            <div class="interest-icon">✨</div>
+            <div class="interest-name">Sparkles & Glitter</div>
+            <div class="interest-desc">Making everything SHINE</div>
+          </div>
+          
+          <div class="interest-card" onclick="interestExplosion(this, '📷')">
+            <div class="interest-icon">📷</div>
+            <div class="interest-name">Chaotic Photography</div>
+            <div class="interest-desc">Capturing pure chaos energy</div>
+          </div>
+          
+          <div class="interest-card" onclick="interestExplosion(this, '🖤')">
+            <div class="interest-icon">🖤</div>
+            <div class="interest-name">Femboy Fashion</div>
+            <div class="interest-desc">Thigh highs = life force</div>
+          </div>
+          
+          <div class="interest-card" onclick="interestExplosion(this, '😈')">
+            <div class="interest-icon">😈</div>
+            <div class="interest-name">HTML Sins</div>
+            <div class="interest-desc">Breaking the internet with cuteness</div>
+          </div>
+          
+          <div class="interest-card" onclick="interestExplosion(this, '💻')">
+            <div class="interest-icon">💻</div>
+            <div class="interest-name">Digital Chaos</div>
+            <div class="interest-desc">Creating beautiful disasters</div>
+          </div>
+          
+          <div class="interest-card" onclick="interestExplosion(this, '🎮')">
+            <div class="interest-icon">🎮</div>
+            <div class="interest-name">Gaming Chaos</div>
+            <div class="interest-desc">UwU-ing through virtual worlds</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-section">
+        <h2 class="section-title">📊 Chaos Statistics 📊</h2>
+        <div class="stats-container">
+          <div class="stat-bar">
+            <div class="stat-label">Cuteness Level</div>
+            <div class="stat-bar-container">
+              <div class="stat-fill" style="width: 95%; background: linear-gradient(45deg, #ff69b4, #ff1493);"></div>
+            </div>
+            <div class="stat-value">95% 💖</div>
+          </div>
+          
+          <div class="stat-bar">
+            <div class="stat-label">Chaos Energy</div>
+            <div class="stat-bar-container">
+              <div class="stat-fill" style="width: 100%; background: linear-gradient(45deg, #ff00ff, #00ffff);"></div>
+            </div>
+            <div class="stat-value">OVERFLOWING ⚡</div>
+          </div>
+          
+          <div class="stat-bar">
+            <div class="stat-label">Caffeine Addiction</div>
+            <div class="stat-bar-container">
+              <div class="stat-fill" style="width: 120%; background: linear-gradient(45deg, #32cd32, #228b22);"></div>
+            </div>
+            <div class="stat-value">CRITICAL ☕</div>
+          </div>
+          
+          <div class="stat-bar">
+            <div class="stat-label">UwU Power</div>
+            <div class="stat-bar-container">
+              <div class="stat-fill" style="width: 88%; background: linear-gradient(45deg, #ffd700, #ffb347);"></div>
+            </div>
+            <div class="stat-value">88% UwU</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h2 class="section-title">💌 Connect with Chaos 💌</h2>
+        <div class="contact-buttons">
+          <button class="contact-btn" onclick="contactExplosion('email')">
+            📧 Email Chaos
+          </button>
+          <button class="contact-btn" onclick="contactExplosion('discord')">
+            💬 Discord Mayhem
+          </button>
+          <button class="contact-btn" onclick="contactExplosion('twitter')">
+            🐦 Twitter Chaos
+          </button>
+          <button class="contact-btn" onclick="contactExplosion('uwu')">
+            🌈 Send UwUs
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chaos containers -->
+  <div class="emoji-rain" id="emojiRain"></div>
+  <div class="uwu-rain" id="uwuRain"></div>
+  <div class="heart-rain" id="heartRain"></div>
+  <div class="rainbow-particles" id="rainbowParticles"></div>
+  <div class="kiss-explosions" id="kissExplosions"></div>
+  <div class="sparkle-container" id="sparkleContainer"></div>
+  <div class="glitch-text-container" id="glitchTextContainer"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // About page specific effects
+    function interestExplosion(element, emoji) {
+      element.style.transform = 'scale(1.2) rotate(10deg)';
+      setTimeout(() => {
+        element.style.transform = '';
+      }, 300);
+      
+      // Create explosion of the specific emoji
+      for (let i = 0; i < 10; i++) {
+        const explosion = document.createElement("div");
+        explosion.innerText = emoji;
+        explosion.style.position = "fixed";
+        explosion.style.left = element.offsetLeft + Math.random() * 100 - 50 + "px";
+        explosion.style.top = element.offsetTop + Math.random() * 100 - 50 + "px";
+        explosion.style.fontSize = "2em";
+        explosion.style.pointerEvents = "none";
+        explosion.style.zIndex = "10";
+        explosion.style.animation = "kissExplode 1s ease-out forwards";
+        
+        document.body.appendChild(explosion);
+        setTimeout(() => explosion.remove(), 1000);
+      }
+      
+      flashScreen("#ff69b4");
+    }
+    
+    function contactExplosion(type) {
+      const messages = {
+        email: "📧 Chaos email sent! Check your spam folder for maximum chaos! 💖",
+        discord: "💬 Discord chaos activated! Prepare for UwU overload! ✨",
+        twitter: "🐦 Twitter chaos unleashed! The timeline will never recover! 🌈",
+        uwu: "🌈 UwUs have been deployed across the digital realm! 💖✨"
+      };
+      
+      alert(messages[type]);
+      
+      // Trigger appropriate chaos effect
+      switch(type) {
+        case 'email':
+          spawnEmoji();
+          break;
+        case 'discord':
+          spawnUwU();
+          break;
+        case 'twitter':
+          rainbowExplosion();
+          break;
+        case 'uwu':
+          heartStorm();
+          break;
+      }
+    }
+    
+    // Add some floating sparkles around the profile image
+    setInterval(() => {
+      const container = document.querySelector('.image-sparkles');
+      if (container) {
+        const sparkle = document.createElement('div');
+        sparkle.innerText = '✨';
+        sparkle.style.position = 'absolute';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.fontSize = '1.5em';
+        sparkle.style.animation = 'sparkleFade 2s ease-out forwards';
+        sparkle.style.pointerEvents = 'none';
+        container.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 2000);
+      }
+    }, 1000);
+  </script>
+  
+  <style>
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2em;
+    }
+    
+    .profile-section {
+      display: flex;
+      gap: 2em;
+      margin-bottom: 3em;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .profile-image-container {
+      position: relative;
+      flex-shrink: 0;
+    }
+    
+    .profile-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 5px solid #ff00ff;
+      object-fit: cover;
+    }
+    
+    .image-sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
+    .bio-section {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .bio-text {
+      font-size: 1.3em;
+      margin-bottom: 2em;
+      line-height: 1.6;
+    }
+    
+    .info-grid {
+      display: grid;
+      gap: 1em;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      padding: 1em;
+      background: rgba(255, 0, 255, 0.2);
+      border-radius: 15px;
+      border: 2px solid #ff00ff;
+    }
+    
+    .info-label {
+      font-weight: bold;
+      min-width: 120px;
+      color: #ffff00;
+    }
+    
+    .info-value {
+      flex: 1;
+    }
+    
+    .rainbow-text {
+      animation: megaRainbow 2s infinite;
+    }
+    
+    .interests-section, .stats-section, .contact-section {
+      margin: 3em 0;
+    }
+    
+    .section-title {
+      font-size: 2.5em;
+      text-align: center;
+      margin-bottom: 1.5em;
+      animation: megaRainbow 3s infinite;
+    }
+    
+    .interests-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+    }
+    
+    .interest-card {
+      background: linear-gradient(45deg, rgba(255, 0, 255, 0.3), rgba(0, 255, 255, 0.3));
+      border: 3px solid #ff00ff;
+      border-radius: 20px;
+      padding: 1.5em;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: cardFloat 3s ease-in-out infinite;
+    }
+    
+    .interest-card:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 0 30px #ff00ff;
+    }
+    
+    .interest-icon {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      animation: iconSpin 4s linear infinite;
+    }
+    
+    @keyframes iconSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .interest-name {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      color: #ffff00;
+    }
+    
+    .interest-desc {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+    
+    .stats-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .stat-bar {
+      margin: 1.5em 0;
+      padding: 1em;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      border: 2px solid #00ffff;
+    }
+    
+    .stat-label {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+      color: #ffff00;
+    }
+    
+    .stat-bar-container {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      height: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .stat-fill {
+      height: 100%;
+      border-radius: 10px;
+      animation: statPulse 2s infinite, statShine 3s linear infinite;
+      position: relative;
+    }
+    
+    @keyframes statPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    
+    @keyframes statShine {
+      0% { background-position: -200px 0; }
+      100% { background-position: 200px 0; }
+    }
+    
+    .stat-value {
+      text-align: right;
+      margin-top: 0.5em;
+      font-weight: bold;
+      color: #ff69b4;
+    }
+    
+    .contact-buttons {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .contact-btn {
+      padding: 1em 2em;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      animation: buttonFloat 2s ease-in-out infinite;
+    }
+    
+    .contact-btn:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 30px #ff00ff;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .profile-img {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .interests-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </body>
 </html>
