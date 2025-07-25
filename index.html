@@ -3,209 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fluffy Femboy Land UwU</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      font-family: "Comic Sans MS", cursive;
-      background: linear-gradient(135deg, #ffccff, #ccffff, #ffe0f0, #ccffcc);
-      background-size: 400% 400%;
-      animation: bgmove 10s ease infinite;
-      color: white;
-      text-align: center;
-      cursor: crosshair;
-    }
-
-    @keyframes bgmove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-top: 1em;
-      text-shadow: 3px 3px #ff69b4, -2px -2px #00ffff;
-      animation: shake 1s infinite alternate;
-    }
-
-    @keyframes shake {
-      from { transform: rotate(-2deg) scale(1.02); }
-      to   { transform: rotate(2deg) scale(1.03); }
-    }
-
-    .sparkles, .wiggle {
-      font-size: 2em;
-      animation: pulse 2s infinite alternate;
-    }
-
-    .wiggle {
-      display: inline-block;
-      animation: wiggle 0.3s infinite ease-in-out;
-    }
-
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(-2deg); }
-      50% { transform: rotate(2deg); }
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.3; transform: scale(0.9); }
-      100% { opacity: 1; transform: scale(1.1); }
-    }
-
-    .button {
-      margin: 1rem;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      background-color: hotpink;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      box-shadow: 0 0 10px #ff00ff;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      transform: scale(1.1) rotate(-2deg);
-      box-shadow: 0 0 20px #ffccff;
-    }
-
-    .emoji-rain, .uwu-spam {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    .emoji, .uwu {
-      position: absolute;
-      font-size: 2em;
-      animation: fall 5s linear infinite;
-    }
-
-    .uwu {
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.5em;
-      animation: uwufall 6s linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100vh); }
-    }
-
-    @keyframes uwufall {
-      0% { transform: translateY(-50px); opacity: 1; }
-      100% { transform: translateY(100vh); opacity: 0; }
-    }
-
-    .glitch {
-      font-size: 2.5em;
-      color: white;
-      position: relative;
-    }
-
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-    }
-
-    .glitch::before {
-      animation: glitch 1s infinite linear alternate-reverse;
-      color: #ff00ff;
-      z-index: -1;
-    }
-
-    .glitch::after {
-      animation: glitch 1s infinite linear alternate;
-      color: #00ffff;
-      z-index: -2;
-    }
-
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(-2px, -2px); }
-      60% { transform: translate(2px, 2px); }
-      80% { transform: translate(2px, -2px); }
-      100% { transform: translate(0); }
-    }
-
-    .cute-image {
-      width: 200px;
-      border-radius: 20px;
-      margin: 1em auto;
-      box-shadow: 0 0 20px pink;
-    }
-
-    .heart {
-      font-size: 3em;
-      color: #ff69b4;
-      animation: beat 1s infinite alternate;
-    }
-
-    @keyframes beat {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.3); }
-    }
-  </style>
+  <title>Femboy Chaos Central</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>💗 Fluffy Femboy Land 💗</h1>
-  <p class="glitch" data-text="SO SPARKLY~!">SO SPARKLY~!</p>
-  <p class="sparkles">✨ Click buttons below! Or don’t. I’m not your mommy 😳</p>
-  <img src="https://i.imgur.com/NyZlg9f.png" class="cute-image" alt="Cute Femboy"/>
-  <div class="heart">💖</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+  </nav>
+  <h1>Welcome to Fluffy Femboy Land 🌈</h1>
+  <p>You're now entering the ✨ sparkle dimension ✨</p>
 
-  <button class="button" onclick="alert('You’ve been kissed by a femboy 💋✨')">Kith Me OwO</button>
-  <button class="button" onclick="shakeScreen()">Pet Me 🥺</button>
-  <button class="button wiggle" onclick="addUwU()">UwU Spam!</button>
+  <img src="https://i.imgur.com/NyZlg9f.png" class="femboy" alt="femboy 1">
+  <img src="https://i.imgur.com/m04iV8Z.png" class="femboy" alt="femboy 2">
 
-  <div class="emoji-rain" id="emojiRain"></div>
-  <div class="uwu-spam" id="uwuRain"></div>
+  <button onclick="alert('You have been blessed by the Gay OwO gods 💅✨')">
+    Click for blessings
+  </button>
 
-  <script>
-    const emojis = ["💖", "✨", "🌈", "🎀", "👀", "😳", "💅"];
-    const emojiContainer = document.getElementById("emojiRain");
-    const uwuContainer = document.getElementById("uwuRain");
-
-    function createEmoji() {
-      const emoji = document.createElement("div");
-      emoji.className = "emoji";
-      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-      emoji.style.left = Math.random() * 100 + "vw";
-      emoji.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      emojiContainer.appendChild(emoji);
-      setTimeout(() => emoji.remove(), 6000);
-    }
-
-    setInterval(createEmoji, 200);
-
-    function addUwU() {
-      const uwu = document.createElement("div");
-      uwu.className = "uwu";
-      uwu.innerText = "UwU~!";
-      uwu.style.left = Math.random() * 100 + "vw";
-      uwuContainer.appendChild(uwu);
-      setTimeout(() => uwu.remove(), 6000);
-    }
-
-    function shakeScreen() {
-      document.body.style.animation = "shake 0.2s infinite";
-      setTimeout(() => {
-        document.body.style.animation = "";
-      }, 1000);
-    }
-  </script>
+  <footer>Made with chaos and glitter by a fluffy femboy 💖</footer>
 </body>
 </html>

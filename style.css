@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", cursive;
+    background: linear-gradient(135deg, #ffccff, #ccffff, #ffe0f0, #ccffcc);
+    background-size: 400% 400%;
+    animation: bgmove 10s ease infinite;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+  
+  @keyframes bgmove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  nav {
+    background: hotpink;
+    padding: 1em;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav a {
+    margin: 0 1em;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  
+  nav a:hover {
+    color: yellow;
+    text-shadow: 0 0 5px white;
+  }
+  
+  h1 {
+    font-size: 3em;
+    text-shadow: 3px 3px #ff69b4, -2px -2px #00ffff;
+    animation: shake 1s infinite alternate;
+  }
+  
+  @keyframes shake {
+    from { transform: rotate(-2deg) scale(1.02); }
+    to   { transform: rotate(2deg) scale(1.03); }
+  }
+  
+  p {
+    font-size: 1.3em;
+    animation: pulse 2s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+  }
+  
+  img.femboy {
+    width: 200px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px pink;
+    margin: 1em;
+  }
+  
+  footer {
+    margin-top: 3em;
+    font-size: 0.9em;
+    opacity: 0.7;
+  }
+  
