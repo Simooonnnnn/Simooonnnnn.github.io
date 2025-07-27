@@ -14,8 +14,8 @@
     <a href="index.html" class="nav-link">🏠 CHAOS HOME 🏠</a>
     <a href="about.html" class="nav-link">✨ ABOUT BEAN ✨</a>
     <a href="gallery.html" class="nav-link">📸 GALLERY 📸</a>
-    <a href="#" onclick="kissExplosion()" class="nav-link">💋 KISS CHAOS 💋</a>
-    <a href="#" onclick="screenShake()" class="nav-link">🌪️ SHAKE IT 🌪️</a>
+    <a href="#" onclick="kissExplosion(); return false;" class="nav-link">💋 KISS CHAOS 💋</a>
+    <a href="#" onclick="screenShake(); return false;" class="nav-link">🌪️ SHAKE IT 🌪️</a>
   </nav>
 
   <div class="title-container">
@@ -26,7 +26,7 @@
     <div class="about-container">
       <div class="profile-section">
         <div class="profile-image-container">
-          <img src="https://picsum.photos/300/300?random=10" class="profile-img chaos-img" alt="Chaotic femboy bean">
+          <img src="https://i.imgur.com/kCD4SxR.jpeg" class="profile-img chaos-img" alt="Chaotic femboy bean" onerror="this.src='https://via.placeholder.com/300x300/ff00ff/ffffff?text=💖+CHAOS+BEAN+💖'">
           <div class="image-sparkles"></div>
         </div>
         
@@ -168,30 +168,36 @@
 
   <script src="script.js"></script>
   <script>
-    // About page specific effects
+    // About page specific effects - FIXED
     function interestExplosion(element, emoji) {
+      if (!element) return;
+      
       element.style.transform = 'scale(1.2) rotate(10deg)';
       setTimeout(() => {
         element.style.transform = '';
       }, 300);
       
       // Create explosion of the specific emoji
+      const rect = element.getBoundingClientRect();
       for (let i = 0; i < 10; i++) {
         const explosion = document.createElement("div");
         explosion.innerText = emoji;
         explosion.style.position = "fixed";
-        explosion.style.left = element.offsetLeft + Math.random() * 100 - 50 + "px";
-        explosion.style.top = element.offsetTop + Math.random() * 100 - 50 + "px";
+        explosion.style.left = rect.left + Math.random() * rect.width + "px";
+        explosion.style.top = rect.top + Math.random() * rect.height + "px";
         explosion.style.fontSize = "2em";
         explosion.style.pointerEvents = "none";
         explosion.style.zIndex = "10";
-        explosion.style.animation = "kissExplode 1s ease-out forwards";
+        explosion.className = "kiss-explosion";
         
         document.body.appendChild(explosion);
-        setTimeout(() => explosion.remove(), 1000);
+        setTimeout(() => {
+          if (explosion.parentNode) explosion.remove();
+        }, 1000);
       }
       
       flashScreen("#ff69b4");
+      playSound("interest");
     }
     
     function contactExplosion(type) {
@@ -219,10 +225,12 @@
           heartStorm();
           break;
       }
+      
+      playSound(type);
     }
     
-    // Add some floating sparkles around the profile image
-    setInterval(() => {
+    // Add some floating sparkles around the profile image - FIXED
+    function createProfileSparkles() {
       const container = document.querySelector('.image-sparkles');
       if (container) {
         const sparkle = document.createElement('div');
@@ -231,11 +239,53 @@
         sparkle.style.left = Math.random() * 100 + '%';
         sparkle.style.top = Math.random() * 100 + '%';
         sparkle.style.fontSize = '1.5em';
-        sparkle.style.animation = 'sparkleFade 2s ease-out forwards';
         sparkle.style.pointerEvents = 'none';
+        sparkle.className = 'profile-sparkle';
         container.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 2000);
+        setTimeout(() => {
+          if (sparkle.parentNode) sparkle.remove();
+        }, 2000);
       }
+    }
+    
+    // Create sparkles regularly
+    setInterval(createProfileSparkles, 1000);
+    
+    // Interactive stat bars
+    const statBars = document.querySelectorAll('.stat-bar');
+    statBars.forEach(bar => {
+      bar.addEventListener('click', () => {
+        const fill = bar.querySelector('.stat-fill');
+        if (fill) {
+          fill.style.animation = 'none';
+          fill.offsetHeight; // trigger reflow
+          fill.style.animation = 'statPulse 0.5s ease-out, statShine 1s linear';
+          
+          // Create mini explosion
+          createChaosParticle(bar.offsetLeft + bar.offsetWidth / 2, bar.offsetTop + bar.offsetHeight / 2);
+        }
+      });
+    });
+    
+    // Add hover effects to interest cards
+    const interestCards = document.querySelectorAll('.interest-card');
+    interestCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        if (Math.random() < 0.3) {
+          createChaosParticle(
+            card.offsetLeft + Math.random() * card.offsetWidth,
+            card.offsetTop + Math.random() * card.offsetHeight
+          );
+        }
+      });
+    });
+
+    // Add some initial chaos
+    setTimeout(() => {
+      createProfileSparkles();
+      setTimeout(() => {
+        createChaosParticle(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
+      }, 500);
     }, 1000);
   </script>
   
@@ -276,6 +326,10 @@
       pointer-events: none;
     }
     
+    .profile-sparkle {
+      animation: sparkleFade 2s ease-out forwards;
+    }
+    
     .bio-section {
       flex: 1;
       min-width: 300px;
@@ -300,6 +354,12 @@
       background: rgba(255, 0, 255, 0.2);
       border-radius: 15px;
       border: 2px solid #ff00ff;
+      transition: all 0.3s ease;
+    }
+    
+    .info-item:hover {
+      background: rgba(255, 0, 255, 0.3);
+      box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
     }
     
     .info-label {
@@ -388,6 +448,13 @@
       background: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       border: 2px solid #00ffff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-bar:hover {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     }
     
     .stat-label {

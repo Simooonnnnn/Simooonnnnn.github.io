@@ -1,16 +1,41 @@
-// MAXIMUM CHAOS MODE JAVASCRIPT
+// MAXIMUM CHAOS MODE JAVASCRIPT - FIXED VERSION
 let chaosLevel = 0;
 let glitchMode = false;
 let particleCount = 0;
+let audioContext = null;
+
+// Initialize audio context for sound effects
+function initAudio() {
+  if (!audioContext) {
+    try {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    } catch (e) {
+      console.log("Audio not supported, using visual feedback only");
+    }
+  }
+}
 
 // Enhanced mouse trail with multiple effects
 document.addEventListener("mousemove", e => {
-  // Sparkle trail
-  const sparkle = document.createElement("div");
-  sparkle.style.left = e.pageX + "px";
-  sparkle.style.top = e.pageY + "px";
-  document.getElementById("sparkleContainer").appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 1000);
+  // Sparkle trail - with error checking
+  const sparkleContainer = document.getElementById("sparkleContainer");
+  if (sparkleContainer) {
+    const sparkle = document.createElement("div");
+    sparkle.style.position = "fixed";
+    sparkle.style.left = e.pageX + "px";
+    sparkle.style.top = e.pageY + "px";
+    sparkle.style.width = "8px";
+    sparkle.style.height = "8px";
+    sparkle.style.borderRadius = "50%";
+    sparkle.style.background = "radial-gradient(circle, white, transparent)";
+    sparkle.style.pointerEvents = "none";
+    sparkle.style.zIndex = "6";
+    sparkle.className = "mouse-sparkle";
+    sparkleContainer.appendChild(sparkle);
+    setTimeout(() => {
+      if (sparkle.parentNode) sparkle.remove();
+    }, 1000);
+  }
   
   // Random chaos particles on movement
   if (Math.random() < 0.3) {
@@ -23,15 +48,25 @@ function spawnEmoji() {
   const emojis = ["💖", "✨", "🌈", "🎀", "👀", "😳", "💅", "🦄", "🌸", "💝", "🍓", "🧚‍♀️", "💫", "🌺", "🦋"];
   const container = document.getElementById("emojiRain");
   
+  if (!container) return;
+  
   for (let i = 0; i < 30; i++) {
     const el = document.createElement("div");
     el.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    el.style.position = "fixed";
     el.style.left = Math.random() * 100 + "vw";
     el.style.top = "-50px";
+    el.style.fontSize = "2em";
+    el.style.pointerEvents = "none";
+    el.style.zIndex = "5";
+    el.style.textShadow = "0 0 10px black";
     el.style.animationDelay = Math.random() * 2 + "s";
     el.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    el.className = "falling-emoji";
     container.appendChild(el);
-    setTimeout(() => el.remove(), 8000);
+    setTimeout(() => {
+      if (el.parentNode) el.remove();
+    }, 8000);
   }
   
   // Add screen flash effect
@@ -44,15 +79,25 @@ function spawnUwU() {
   const uwuTexts = ["UwU~✨", "OwO💖", ">w<🌈", "^w^💫", "~(＾◡＾)~", "(*´ω｀*)", "(´∀｀)♡", "ヽ(♡‿♡)ノ"];
   const container = document.getElementById("uwuRain");
   
+  if (!container) return;
+  
   for (let i = 0; i < 25; i++) {
     const el = document.createElement("div");
     el.innerText = uwuTexts[Math.floor(Math.random() * uwuTexts.length)];
+    el.style.position = "fixed";
     el.style.left = Math.random() * 100 + "vw";
     el.style.top = "-30px";
+    el.style.fontSize = "1.8em";
+    el.style.pointerEvents = "none";
+    el.style.zIndex = "5";
+    el.style.textShadow = "0 0 10px black";
     el.style.animationDelay = Math.random() * 1.5 + "s";
     el.style.color = `hsl(${Math.random() * 360}, 100%, 70%)`;
+    el.className = "falling-uwu";
     container.appendChild(el);
-    setTimeout(() => el.remove(), 7000);
+    setTimeout(() => {
+      if (el.parentNode) el.remove();
+    }, 7000);
   }
   
   flashScreen("#00ffff");
@@ -64,13 +109,22 @@ function kissExplosion() {
   const kisses = ["💋", "😘", "💕", "💖", "💗", "💘", "💞", "💝"];
   const container = document.getElementById("kissExplosions");
   
+  if (!container) return;
+  
   for (let i = 0; i < 15; i++) {
     const el = document.createElement("div");
     el.innerText = kisses[Math.floor(Math.random() * kisses.length)];
+    el.style.position = "fixed";
     el.style.left = Math.random() * 100 + "vw";
     el.style.top = Math.random() * 100 + "vh";
+    el.style.fontSize = "3em";
+    el.style.pointerEvents = "none";
+    el.style.zIndex = "7";
+    el.className = "kiss-explosion";
     container.appendChild(el);
-    setTimeout(() => el.remove(), 2000);
+    setTimeout(() => {
+      if (el.parentNode) el.remove();
+    }, 2000);
   }
   
   // Create explosion effect at center
@@ -79,7 +133,7 @@ function kissExplosion() {
   playSound("kiss");
 }
 
-// Screen shake effect
+// Screen shake effect - FIXED
 function screenShake() {
   document.body.classList.add("screen-shake");
   setTimeout(() => {
@@ -99,18 +153,30 @@ function screenShake() {
   playSound("shake");
 }
 
-// New rainbow explosion effect
+// New rainbow explosion effect - FIXED
 function rainbowExplosion() {
   const container = document.getElementById("rainbowParticles");
+  if (!container) return;
+  
   const colors = ["#ff00ff", "#00ffff", "#ffff00", "#ff0080", "#8000ff", "#00ff80"];
   
   for (let i = 0; i < 50; i++) {
     const particle = document.createElement("div");
+    particle.style.position = "fixed";
     particle.style.left = Math.random() * 100 + "vw";
+    particle.style.top = "100vh";
+    particle.style.width = "15px";
+    particle.style.height = "15px";
+    particle.style.borderRadius = "50%";
     particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.pointerEvents = "none";
+    particle.style.zIndex = "4";
     particle.style.animationDelay = Math.random() * 1 + "s";
+    particle.className = "rainbow-particle";
     container.appendChild(particle);
-    setTimeout(() => particle.remove(), 3000);
+    setTimeout(() => {
+      if (particle.parentNode) particle.remove();
+    }, 3000);
   }
   
   // Rainbow flash effect
@@ -124,27 +190,36 @@ function rainbowExplosion() {
   playSound("rainbow");
 }
 
-// New heart storm effect
+// New heart storm effect - FIXED
 function heartStorm() {
   const hearts = ["💖", "💗", "💘", "💝", "💕", "💞", "❤️", "🧡", "💛", "💚", "💙", "💜"];
   const container = document.getElementById("heartRain");
   
+  if (!container) return;
+  
   for (let i = 0; i < 40; i++) {
     const heart = document.createElement("div");
     heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.position = "fixed";
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.top = "-50px";
-    heart.style.animationDelay = Math.random() * 2 + "s";
     heart.style.fontSize = (Math.random() * 2 + 1) + "em";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "5";
+    heart.style.textShadow = "0 0 10px black";
+    heart.style.animationDelay = Math.random() * 2 + "s";
+    heart.className = "falling-heart";
     container.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
+    setTimeout(() => {
+      if (heart.parentNode) heart.remove();
+    }, 6000);
   }
   
   flashScreen("#ff69b4");
   playSound("heart");
 }
 
-// Glitch mode toggle
+// Glitch mode toggle - FIXED
 function glitchMode() {
   glitchMode = !glitchMode;
   
@@ -162,15 +237,27 @@ function glitchMode() {
 let glitchInterval;
 function startGlitchEffects() {
   const container = document.getElementById("glitchTextContainer");
+  if (!container) return;
+  
   const glitchTexts = ["ERROR", "CHAOS", "OVERLOAD", "SYSTEM MALFUNCTION", "UwU.exe", "FEMBOY.dll", "💖ERROR💖"];
   
   glitchInterval = setInterval(() => {
     const glitchEl = document.createElement("div");
     glitchEl.innerText = glitchTexts[Math.floor(Math.random() * glitchTexts.length)];
+    glitchEl.style.position = "fixed";
     glitchEl.style.left = Math.random() * 100 + "vw";
     glitchEl.style.top = Math.random() * 100 + "vh";
+    glitchEl.style.fontSize = "2em";
+    glitchEl.style.color = "#00ffff";
+    glitchEl.style.fontFamily = "'Courier New', monospace";
+    glitchEl.style.pointerEvents = "none";
+    glitchEl.style.zIndex = "8";
+    glitchEl.style.textShadow = "2px 0 #ff00ff, -2px 0 #ffff00";
+    glitchEl.className = "glitch-text";
     container.appendChild(glitchEl);
-    setTimeout(() => glitchEl.remove(), 3000);
+    setTimeout(() => {
+      if (glitchEl.parentNode) glitchEl.remove();
+    }, 3000);
   }, 500);
 }
 
@@ -180,7 +267,7 @@ function stopGlitchEffects() {
   }
 }
 
-// Helper function to create chaos particles
+// Helper function to create chaos particles - FIXED
 function createChaosParticle(x, y) {
   const particle = document.createElement("div");
   particle.style.position = "fixed";
@@ -192,13 +279,15 @@ function createChaosParticle(x, y) {
   particle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
   particle.style.pointerEvents = "none";
   particle.style.zIndex = "9";
-  particle.style.animation = "sparkleFade 0.8s ease-out forwards";
+  particle.className = "chaos-particle";
   
   document.body.appendChild(particle);
-  setTimeout(() => particle.remove(), 800);
+  setTimeout(() => {
+    if (particle.parentNode) particle.remove();
+  }, 800);
 }
 
-// Helper function to create explosion effect
+// Helper function to create explosion effect - FIXED
 function createExplosion(x, y) {
   const explosionEmojis = ["💥", "⚡", "✨", "🌟", "💫", "🎆", "🎇"];
   
@@ -211,14 +300,16 @@ function createExplosion(x, y) {
     explosion.style.fontSize = "3em";
     explosion.style.pointerEvents = "none";
     explosion.style.zIndex = "10";
-    explosion.style.animation = "kissExplode 1.5s ease-out forwards";
+    explosion.className = "explosion-particle";
     
     document.body.appendChild(explosion);
-    setTimeout(() => explosion.remove(), 1500);
+    setTimeout(() => {
+      if (explosion.parentNode) explosion.remove();
+    }, 1500);
   }
 }
 
-// Screen flash effect
+// Screen flash effect - FIXED
 function flashScreen(color) {
   const flash = document.createElement("div");
   flash.style.position = "fixed";
@@ -230,31 +321,17 @@ function flashScreen(color) {
   flash.style.opacity = "0.5";
   flash.style.pointerEvents = "none";
   flash.style.zIndex = "9999";
-  flash.style.animation = "flashFade 0.3s ease-out forwards";
+  flash.className = "screen-flash";
   
   document.body.appendChild(flash);
-  setTimeout(() => flash.remove(), 300);
+  setTimeout(() => {
+    if (flash.parentNode) flash.remove();
+  }, 300);
 }
 
-// Add CSS for flash animation if not exists
-if (!document.querySelector('#flashAnimation')) {
-  const style = document.createElement('style');
-  style.id = 'flashAnimation';
-  style.textContent = `
-    @keyframes flashFade {
-      0% { opacity: 0.5; }
-      50% { opacity: 0.8; }
-      100% { opacity: 0; }
-    }
-  `;
-  document.head.appendChild(style);
-}
-
-// Sound effect simulation (visual feedback since audio is limited)
+// ENHANCED Sound effect with actual audio - FIXED
 function playSound(type) {
-  console.log(`🔊 Playing ${type} sound effect!`);
-  
-  // Visual sound effect
+  // Visual feedback
   const soundIndicator = document.createElement("div");
   soundIndicator.style.position = "fixed";
   soundIndicator.style.top = "20px";
@@ -264,25 +341,55 @@ function playSound(type) {
   soundIndicator.style.padding = "10px";
   soundIndicator.style.borderRadius = "10px";
   soundIndicator.style.zIndex = "10000";
-  soundIndicator.style.animation = "soundPulse 0.5s ease-out";
+  soundIndicator.style.fontWeight = "bold";
+  soundIndicator.className = "sound-indicator";
   soundIndicator.innerText = `🔊 ${type.toUpperCase()}!`;
   
   document.body.appendChild(soundIndicator);
-  setTimeout(() => soundIndicator.remove(), 500);
+  setTimeout(() => {
+    if (soundIndicator.parentNode) soundIndicator.remove();
+  }, 500);
+  
+  // Actual audio synthesis
+  if (audioContext) {
+    try {
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      // Different frequencies for different sound types
+      const frequencies = {
+        emoji: [440, 550, 660],
+        uwu: [330, 440, 550],
+        kiss: [220, 330, 440],
+        shake: [110, 220],
+        rainbow: [440, 550, 660, 770],
+        heart: [330, 415, 550],
+        glitch: [100, 200, 400]
+      };
+      
+      const freq = frequencies[type] || [440];
+      oscillator.frequency.setValueAtTime(freq[0], audioContext.currentTime);
+      
+      // Create a musical effect
+      freq.forEach((f, i) => {
+        oscillator.frequency.setValueAtTime(f, audioContext.currentTime + i * 0.1);
+      });
+      
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.5);
+    } catch (e) {
+      console.log("Audio synthesis failed:", e);
+    }
+  }
 }
 
-// Add sound pulse animation
-const soundStyle = document.createElement('style');
-soundStyle.textContent = `
-  @keyframes soundPulse {
-    0% { transform: scale(0); opacity: 0; }
-    50% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-`;
-document.head.appendChild(soundStyle);
-
-// Random chaos events
+// Random chaos events - FIXED
 setInterval(() => {
   if (Math.random() < 0.1) { // 10% chance every 2 seconds
     const chaosEvents = [
@@ -295,11 +402,14 @@ setInterval(() => {
         el.style.left = Math.random() * 100 + "vw";
         el.style.top = "-50px";
         el.style.fontSize = "2em";
-        el.style.animation = "chaosfall 4s linear";
         el.style.pointerEvents = "none";
         el.style.zIndex = "5";
+        el.style.textShadow = "0 0 10px black";
+        el.className = "random-chaos";
         document.body.appendChild(el);
-        setTimeout(() => el.remove(), 4000);
+        setTimeout(() => {
+          if (el.parentNode) el.remove();
+        }, 4000);
       }
     ];
     
@@ -307,7 +417,7 @@ setInterval(() => {
   }
 }, 2000);
 
-// Konami code for ULTIMATE CHAOS
+// Konami code for ULTIMATE CHAOS - FIXED
 let konamiCode = [];
 const konamiSequence = [
   'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
@@ -353,11 +463,20 @@ function activateUltimateChaos() {
   }
 }
 
+// Initialize audio on first user interaction
+document.addEventListener('click', () => {
+  initAudio();
+}, { once: true });
+
+document.addEventListener('keydown', () => {
+  initAudio();
+}, { once: true });
+
 // Initialize chaos
 console.log("🌈💖 FEMBOY CHAOS DIMENSION LOADED! 💖🌈");
 console.log("Try the Konami code for ultimate chaos! ↑↑↓↓←→←→BA");
 
-// Add some initial sparkles
+// Add some initial sparkles - FIXED
 setTimeout(() => {
   for (let i = 0; i < 10; i++) {
     setTimeout(() => {
